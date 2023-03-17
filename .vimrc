@@ -86,6 +86,9 @@ call plug#begin()
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-surround'
   Plug 'NLKNguyen/papercolor-theme'
+  Plug 'sheerun/vim-polyglot'
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'alvan/vim-closetag'
 call plug#end()
 
 "papercolor-theme seettings:
