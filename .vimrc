@@ -83,14 +83,45 @@ set expandtab
 
 "plugins
 call plug#begin()
+  Plug 'leafOfTree/vim-vue-plugin'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-surround'
   Plug 'NLKNguyen/papercolor-theme'
   Plug 'sheerun/vim-polyglot'
   Plug 'jiangmiao/auto-pairs'
   Plug 'alvan/vim-closetag'
+  Plug 'preservim/nerdtree'
 call plug#end()
 
 "papercolor-theme seettings:
 set background=dark
 colorscheme PaperColor
+
+"nerdtree
+let NERDTreeWinPos = "right"
+" nmap <C-E> :NERDTreeToggle<CR>
+let g:NERDTreeShowLineNumbers=1
+autocmd BufEnter NERD_* setlocal rnu
+
+" Close the tab if NERDTree is the only window remaining in it.
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-e> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+"vim-vue-plugin
+let g:vim_vue_plugin_config = { 
+      \'syntax': {
+      \   'template': ['html'],
+      \   'script': ['javascript'],
+      \   'style': ['css'],
+      \},
+      \'full_syntax': [],
+      \'initial_indent': [],
+      \'attribute': 0,
+      \'keyword': 0,
+      \'foldexpr': 0,
+      \'debug': 0,
+      \}
